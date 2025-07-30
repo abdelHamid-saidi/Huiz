@@ -13,6 +13,9 @@ Application de quiz moderne construite avec Vue.js et Tailwind CSS.
 ## Installation
 
 ```bash
+# Clone le dépôt
+git clone https://github.com/abdelHamid-saidi/Huiz.git
+
 # Installer les dépendances
 npm install
 
