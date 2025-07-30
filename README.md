@@ -52,23 +52,6 @@ src/
 ```
 
 
-##  Installation
-
-```bash
-
-# Clone le dépôt
-git clone https://github.com/abdelHamid-saidi/React-Todo-List.git
-cd React-Todo-List
-
-# Installe les dépendances
-npm install
-
-# Lance le serveur de développement
-npm run dev
-
-```
-
-
 ## Déploiement
 
 ```bash
