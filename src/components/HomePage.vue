@@ -7,7 +7,7 @@
           <div class="flex items-center space-x-4">
             <div class="w-12 h-12 bg-quiz-green rounded-xl flex items-center justify-center shadow-lg">
               <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
               </svg>
             </div>
             <div>
@@ -15,16 +15,16 @@
               <p class="text-sm text-gray-500">Quiz interactif moderne</p>
             </div>
           </div>
-          <div class="hidden md:flex items-center space-x-6">
-            <a href="#features" class="text-gray-600 hover:text-quiz-green transition-colors">Fonctionnalités</a>
-            <a href="#about" class="text-gray-600 hover:text-quiz-green transition-colors">À propos</a>
-            <button
-              @click="startQuiz"
-              class="px-6 py-2 bg-quiz-green text-white rounded-lg hover:bg-green-600 transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              Commencer
-            </button>
-          </div>
+            <div class="hidden md:flex items-center space-x-6">
+             <a href="#features" @click="scrollToSection('features')" class="text-gray-600 hover:text-quiz-green transition-colors">Fonctionnalités</a>
+             <a href="#about" @click="scrollToSection('about')" class="text-gray-600 hover:text-quiz-green transition-colors">À propos</a>
+             <button
+               @click="startQuiz"
+               class="px-6 py-2 bg-quiz-green text-white rounded-lg hover:bg-green-600 transition-all duration-200 shadow-md hover:shadow-lg"
+             >
+               Commencer
+             </button>
+           </div>
         </div>
       </div>
     </div>
@@ -96,19 +96,19 @@
               <div>
                 <div class="text-sm text-gray-500 mb-3">Question 1 sur 10</div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-6">
-                  Quelle est la capitale de l'Italie ?
+                  Islam Slimani a déclaré que 'le plus duur c'était ...'
                 </h3>
                 
                 <!-- Options Preview -->
                 <div class="space-y-4">
                   <div class="p-4 border-2 border-gray-200 rounded-xl flex items-center space-x-4 hover:border-gray-300 transition-colors">
                     <span class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-sm font-semibold text-gray-700">A</span>
-                    <span class="text-gray-700">Madrid</span>
+                    <span class="text-gray-700">Échapper à Baya quand elle t’a à l'œil</span>
                   </div>
                   <div class="p-4 border-2 border-quiz-green bg-green-50 rounded-xl flex items-center justify-between">
                     <div class="flex items-center space-x-4">
                       <span class="w-8 h-8 rounded-full bg-quiz-green flex items-center justify-center text-sm font-semibold text-white">B</span>
-                      <span class="text-gray-700">Rome</span>
+                      <span class="text-gray-700">Van Dijk 🤣</span>
                     </div>
                     <svg class="w-6 h-6 text-quiz-green" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -116,11 +116,11 @@
                   </div>
                   <div class="p-4 border-2 border-gray-200 rounded-xl flex items-center space-x-4 hover:border-gray-300 transition-colors">
                     <span class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-sm font-semibold text-gray-700">C</span>
-                    <span class="text-gray-700">Berlin</span>
+                    <span class="text-gray-700">Éviter les plats de couscous avant un match</span>
                   </div>
                   <div class="p-4 border-2 border-gray-200 rounded-xl flex items-center space-x-4 hover:border-gray-300 transition-colors">
                     <span class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-sm font-semibold text-gray-700">D</span>
-                    <span class="text-gray-700">Paris</span>
+                    <span class="text-gray-700">Faire taire mon oncle pendant un match de l'Algérie</span>
                   </div>
                 </div>
               </div>
@@ -135,7 +135,6 @@
                   <div class="absolute inset-0 flex items-center justify-center">
                     <div class="text-center">
                       <div class="text-xl font-bold text-quiz-green">0:15</div>
-                      <div class="text-xs text-gray-500">Temps restant</div>
                     </div>
                   </div>
                 </div>
@@ -291,7 +290,7 @@
             <div class="flex items-center space-x-3 mb-4">
               <div class="w-10 h-10 bg-quiz-green rounded-lg flex items-center justify-center">
                 <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
                 </svg>
               </div>
               <h4 class="text-xl font-bold">Huiz</h4>
@@ -339,5 +338,17 @@ const router = useRouter()
 
 const startQuiz = () => {
   router.push({ name: 'Quiz' })
+}
+
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    const headerHeight = 80 // Hauteur approximative du header
+    const elementPosition = element.offsetTop - headerHeight - 20 // 20px de marge supplémentaire
+    window.scrollTo({
+      top: elementPosition,
+      behavior: 'smooth'
+    })
+  }
 }
 </script> 

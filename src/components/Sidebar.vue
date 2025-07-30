@@ -64,11 +64,6 @@
       <div class="px-4 py-6">
         <div class="flex items-center justify-between mb-4">
           <h3 class="font-semibold text-gray-800 text-sm">Questions</h3>
-          <div class="w-6 h-6 bg-quiz-green rounded-full flex items-center justify-center">
-            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-            </svg>
-          </div>
         </div>
         
         <div class="space-y-2 max-h-64 overflow-y-auto">
@@ -80,7 +75,9 @@
               index === currentQuestionIndex
                 ? 'bg-quiz-green bg-opacity-10 border-quiz-green'
                 : answeredQuestions.includes(index)
-                ? 'bg-green-50 border-green-200'
+                ? isAnswerCorrect(index)
+                  ? 'bg-green-50 border-green-200'
+                  : 'bg-red-50 border-red-200'
                 : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
             ]"
           >
@@ -91,7 +88,9 @@
                   index === currentQuestionIndex
                     ? 'bg-quiz-green text-white'
                     : answeredQuestions.includes(index)
-                    ? 'bg-green-500 text-white'
+                    ? isAnswerCorrect(index)
+                      ? 'bg-green-500 text-white'
+                      : 'bg-red-500 text-white'
                     : 'bg-gray-300 text-gray-600'
                 ]"
               >
@@ -109,8 +108,21 @@
             
             <!-- Status indicator -->
             <div v-if="answeredQuestions.includes(index)" class="flex-shrink-0">
-              <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <svg 
+                v-if="isAnswerCorrect(index)"
+                class="w-4 h-4 text-green-500" 
+                fill="currentColor" 
+                viewBox="0 0 20 20"
+              >
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <svg 
+                v-else
+                class="w-4 h-4 text-red-500" 
+                fill="currentColor" 
+                viewBox="0 0 20 20"
+              >
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
             </div>
             <div v-else-if="index === currentQuestionIndex" class="flex-shrink-0">
@@ -146,6 +158,10 @@ const props = defineProps({
   answeredQuestions: {
     type: Array,
     required: true
+  },
+  userAnswers: {
+    type: Object,
+    required: true
   }
 })
 
@@ -165,6 +181,12 @@ const formatTime = (seconds) => {
   const mins = Math.floor(seconds / 60)
   const secs = seconds % 60
   return `${mins}:${secs.toString().padStart(2, '0')}`
+}
+
+const isAnswerCorrect = (questionIndex) => {
+  const question = props.questions[questionIndex]
+  const userAnswer = props.userAnswers[question.id]
+  return userAnswer === question.answer
 }
 </script>
 

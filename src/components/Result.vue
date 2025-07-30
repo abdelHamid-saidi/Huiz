@@ -7,7 +7,7 @@
           <div class="flex items-center space-x-4">
             <div class="w-12 h-12 bg-quiz-green rounded-xl flex items-center justify-center shadow-lg">
               <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
               </svg>
             </div>
             <div>
@@ -35,7 +35,7 @@
         <!-- Header Section -->
         <div class="p-6 border-b border-gray-100">
           <div class="text-center">
-            <div class="w-20 h-20 bg-quiz-green rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <div :class="['w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg', getScoreColor().iconBg]">
               <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
               </svg>
@@ -47,9 +47,13 @@
 
         <!-- Score Display -->
         <div class="p-6 border-b border-gray-100">
-          <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-gray-200">
+          <div :class="[
+            'rounded-xl p-6 border transition-all duration-300',
+            getScoreColor().bg,
+            getScoreColor().border
+          ]">
             <div class="text-center">
-              <div class="text-4xl font-bold text-quiz-green mb-3">
+              <div :class="['text-4xl font-bold mb-3', getScoreColor().text]">
                 {{ scoreValue }}/{{ totalQuestionsValue }}
               </div>
               <div class="text-lg text-gray-600 mb-4">
@@ -59,7 +63,7 @@
               <!-- Progress Bar -->
               <div class="w-full bg-gray-200 rounded-full h-3 mb-3">
                 <div
-                  class="bg-quiz-green h-3 rounded-full transition-all duration-1000 ease-out"
+                  :class="['h-3 rounded-full transition-all duration-1000 ease-out', getScoreColor().progress]"
                   :style="{ width: `${(scoreValue / totalQuestionsValue) * 100}%` }"
                 ></div>
               </div>
@@ -179,6 +183,36 @@ const getScoreMessage = () => {
   if (percentage >= 60) return "Pas mal !"
   if (percentage >= 50) return "Moyen !"
   return "À améliorer !"
+}
+
+const getScoreColor = () => {
+  const percentage = (scoreValue.value / totalQuestionsValue.value) * 100
+  
+  if (percentage >= 70) {
+    return {
+      bg: 'bg-gradient-to-r from-green-50 to-blue-50',
+      border: 'border-green-200',
+      text: 'text-quiz-green',
+      progress: 'bg-quiz-green',
+      iconBg: 'bg-quiz-green'
+    }
+  } else if (percentage >= 50) {
+    return {
+      bg: 'bg-gradient-to-r from-yellow-50 to-orange-50',
+      border: 'border-yellow-200',
+      text: 'text-yellow-600',
+      progress: 'bg-yellow-500',
+      iconBg: 'bg-yellow-500'
+    }
+  } else {
+    return {
+      bg: 'bg-gradient-to-r from-red-50 to-pink-50',
+      border: 'border-red-200',
+      text: 'text-quiz-red',
+      progress: 'bg-quiz-red',
+      iconBg: 'bg-quiz-red'
+    }
+  }
 }
 
 const restartQuiz = () => {

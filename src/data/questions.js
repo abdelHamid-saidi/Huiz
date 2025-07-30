@@ -1,12 +1,13 @@
 export default [
+
   {
     id: 1,
-    question: "Quelle est la capitale de l'Italie ?",
-    options: { 1: "Madrid", 2: "Rome", 3: "Berlin", 4: "Paris" },
-    answer: "2"
+    question: "Islam Slimani a déclaré que 'le plus duur c'était ...'",
+    options: { 1: "Échapper à Baya quand elle t’a à l'œil", 2: "Éviter les plats de couscous avant un match", 3: "Van Dijk 🤣", 4: "Faire taire mon oncle pendant un match de l'Algérie" },
+    answer: "3"
   },
   {
-    id: 2,
+    id: 2, 
     question: "Quel est le plus grand océan du monde ?",
     options: { 1: "Océan Atlantique", 2: "Océan Pacifique", 3: "Océan Indien", 4: "Océan Arctique" },
     answer: "2"
@@ -265,8 +266,8 @@ export default [
   },
   {
     id: 45,
-    question: "Quel est le nom de la force qui attire les objets vers la Terre ?",
-    options: { 1: "Électromagnétisme", 2: "Gravité", 3: "Force nucléaire", 4: "Force faible" },
+    question: "Quelle est la capitale de l'Italie ?",
+    options: { 1: "Madrid", 2: "Rome", 3: "Berlin", 4: "Paris" },
     answer: "2"
   },
   {
