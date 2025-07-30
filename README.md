@@ -2,55 +2,26 @@
 
 Application de quiz moderne construite avec Vue.js et Tailwind CSS.
 
-## Fonctionnalités
+## Recommended IDE Setup
 
-- 10 questions par session
-- Timer de 30 secondes par question
-- Navigation entre les questions
-- Score en temps réel
-- Interface responsive
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Installation
+## Customize configuration
 
-```bash
-# Installer les dépendances
+See [Vite Configuration Reference](https://vite.dev/config/).
+
+## Project Setup
+
+```sh
 npm install
 
 # Lancer le serveur de développement
 npm run dev
 ```
 
-## Technologies
+### Compile and Minify for Production
 
-- Vue.js 3
-- Tailwind CSS
-- Vite
-
-## Captures d'écran
-
-### Page d'Accueil
-![Accueil](https://via.placeholder.com/800x400/10B981/FFFFFF?text=Accueil)
-
-### Quiz
-![Quiz](https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Quiz)
-
-### Résultats
-![Résultats](https://via.placeholder.com/800x400/EF4444/FFFFFF?text=Résultats)
-
-## Structure
-
-```
-src/
-├── components/     # Composants Vue
-├── data/          # Questions du quiz
-├── router/        # Configuration des routes
-├── utils/         # Utilitaires
-└── views/         # Pages de l'application
-```
-
-## Déploiement
-
-```bash
+```sh
 npm run build
 ```
 
