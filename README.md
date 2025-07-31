@@ -2,6 +2,12 @@
 
 Application de quiz moderne construite avec Vue.js et Tailwind CSS.
 
+##  Démo en ligne
+
+  <a href="https://huiz-quiz.netlify.app/" target="_blank">
+    <img src="https://github.com/user-attachments/assets/c32a4077-64b0-4caf-8b45-fdabc651e6d4" alt="Démo bouton" height="60">
+  </a>
+
 ## Fonctionnalités
 
 - 10 questions par session
